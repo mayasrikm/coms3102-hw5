@@ -3,12 +3,12 @@ import Table from "react-bootstrap/Table";
 import Container from "react-bootstrap/Container";
 
 function App() {
-  const [users, setUsers] = useState([]);
+  const [people, setPeople] = useState([]);
 
   useEffect(() => {
     fetch("https://randomuser.me/api/?results=5")
       .then((response) => response.json())
-      .then((data) => setUsers(data.results));
+      .then((data) => setPeople(data.results));
   }, []);
 
   return (
@@ -22,10 +22,10 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {users.map((user, index) => (
+          {people.map((person, index) => (
             <tr key={index}>
-              <td>{user.name.first}</td>
-              <td>{user.location.city}</td>
+              <td>{person.name.first}</td>
+              <td>{person.location.city}</td>
             </tr>
           ))}
         </tbody>
